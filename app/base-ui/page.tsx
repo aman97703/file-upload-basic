@@ -1,6 +1,7 @@
 "use client";
 
-import NormalFileUpload from "@/components/NormalFIleUpload";
+import BaseFileUpload from "@/components/FileUpload";
+
 import { useState } from "react";
 import {
   Table,
@@ -18,13 +19,13 @@ interface filetype {
   id: string;
 }
 
-export default function Home() {
+
+const BaseUI = () => {
   const [files, setFiles] = useState<filetype[]>([]);
   const [uploadingFiles, setUploadingFiles] = useState<filetype | null>(null);
- 
   return (
     <main className="flex items-center h-full flex-col gap-16 py-10">
-      <NormalFileUpload
+      <BaseFileUpload
         files={files}
         setFiles={setFiles}
         setUploadingFiles={setUploadingFiles}
@@ -71,4 +72,6 @@ export default function Home() {
       </Table>
     </main>
   );
-}
+};
+
+export default BaseUI;
