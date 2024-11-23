@@ -98,7 +98,7 @@ const NormalFileUpload = ({
             reject(new Error("Upload canceled"));
           });
         });
-      } catch (err) {
+      } catch {
         setUploadingFiles(null);
         setUploadingStatus(0);
       }

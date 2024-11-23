@@ -34,7 +34,8 @@ const BaseFileUpload = ({
   setUploadingFiles,
   uploadingFiles,
 }: fileUploadtype) => {
-  const [css, theme] = useStyletron();
+  const [, theme] = useStyletron();
+
   const [uploadStatus, setUploadingStatus] = useState<0 | 1 | 2 | 3>(0);
   const [isDragOver, setIsDragOver] = useState(false);
 
@@ -98,7 +99,7 @@ const BaseFileUpload = ({
             reject(new Error("Upload canceled"));
           });
         });
-      } catch (err) {
+      } catch {
         setUploadingFiles(null);
         setUploadingStatus(0);
       }
